@@ -16,7 +16,7 @@ public class DollarTest {
 		Dollar five = new Dollar(5);
 		five.times(2);
 		Dollar fifteen = five.times(3);
-		assertEquals(15, fifteen.amount);
+		assertEquals(new Dollar(15), fifteen);
 	}
 	
 	@Test
