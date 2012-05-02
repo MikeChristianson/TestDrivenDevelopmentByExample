@@ -1,6 +1,6 @@
 package net.christiansons.mike;
 
-public abstract class Money {
+public class Money {
 
 	protected int amount;
 	protected String currency;
@@ -18,17 +18,26 @@ public abstract class Money {
 		return new Franc(amount, "CHF");
 	}
 
-	public abstract Money times(int amount);
-	
+	public Money times(int multiplier) {
+		return new Money(amount * multiplier, currency);
+	}	
+
 	@Override
 	public boolean equals(Object other) {
-		boolean sameAmount = amount == ((Money)other).amount;
-		boolean sameClass = this.getClass().equals(other.getClass());
-		return sameAmount && sameClass;
+		Money otherMoney = (Money)other;
+		boolean sameAmount = amount == otherMoney.amount;
+		boolean sameCurrency = currency.equals(otherMoney.currency());
+		return sameAmount && sameCurrency;
 	}
 
 	public String currency() {
 		return currency;
 	}
 
+	@Override
+	public String toString() {
+		return "Money [amount=" + amount + ", currency=" + currency + ", getClass()=" + getClass() + "]";
+	}
+	
+	
 }
