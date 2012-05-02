@@ -13,16 +13,16 @@ public class DollarTest {
 
 	@Test
 	public void testMultiplication() {
-		Dollar five = new Dollar(5);
+		Money five = Money.dollar(5);
 		five.times(2);
 		Money fifteen = five.times(3);
-		assertEquals(new Dollar(15), fifteen);
+		assertEquals(Money.dollar(15), fifteen);
 	}
 	
 	@Test
 	public void testEquality() {
-		assertEquals(new Dollar(5), new Dollar(5));
-		assertNotSame(new Dollar(5), new Dollar(6));
+		assertEquals(Money.dollar(5), Money.dollar(5));
+		assertFalse(Money.dollar(5).equals(Money.dollar(6)));
 	}
 
 }

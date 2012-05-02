@@ -13,16 +13,16 @@ public class FrancTest {
 
 	@Test
 	public void testMultiplication() {
-		Franc five = new Franc(5);
+		Franc five = Money.franc(5);
 		five.times(2);
-		Franc fifteen = five.times(3);
-		assertEquals(new Franc(15), fifteen);
+		Money fifteen = five.times(3);
+		assertEquals(Money.franc(15), fifteen);
 	}
 	
 	@Test
 	public void testEquality() {
-		assertEquals(new Franc(5), new Franc(5));
-		assertNotSame(new Franc(5), new Franc(6));
+		assertEquals(Money.franc(5), Money.franc(5));
+		assertFalse(Money.franc(5).equals(Money.franc(6)));
 	}
 
 }
