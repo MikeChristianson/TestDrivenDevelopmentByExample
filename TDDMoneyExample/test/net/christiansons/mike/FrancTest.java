@@ -13,7 +13,7 @@ public class FrancTest {
 
 	@Test
 	public void testMultiplication() {
-		Franc five = Money.franc(5);
+		Money five = Money.franc(5);
 		five.times(2);
 		Money fifteen = five.times(3);
 		assertEquals(Money.franc(15), fifteen);

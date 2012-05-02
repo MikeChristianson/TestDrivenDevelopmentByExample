@@ -3,13 +3,19 @@ package net.christiansons.mike;
 public abstract class Money {
 
 	protected int amount;
+	protected String currency;
 
-	public static Money dollar(int amount) {
-		return new Dollar(amount);
+	public Money(int amount, String currency) {
+		this.amount = amount;
+		this.currency = currency;
 	}
 
-	public static Franc franc(int amount) {
-		return new Franc(amount);
+	public static Money dollar(int amount) {
+		return new Dollar(amount, "USD");
+	}
+
+	public static Money franc(int amount) {
+		return new Franc(amount, "CHF");
 	}
 
 	public abstract Money times(int amount);
@@ -19,6 +25,10 @@ public abstract class Money {
 		boolean sameAmount = amount == ((Money)other).amount;
 		boolean sameClass = this.getClass().equals(other.getClass());
 		return sameAmount && sameClass;
+	}
+
+	public String currency() {
+		return currency;
 	}
 
 }
