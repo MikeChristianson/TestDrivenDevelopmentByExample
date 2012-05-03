@@ -1,6 +1,6 @@
 package net.christiansons.mike;
 
-public class Money {
+public class Money implements Expression {
 
 	protected int amount;
 	protected String currency;
@@ -37,6 +37,11 @@ public class Money {
 	@Override
 	public String toString() {
 		return "Money [amount=" + amount + ", currency=" + currency + ", getClass()=" + getClass() + "]";
+	}
+
+	public Money plus(Money addend) {
+		int sum = this.amount + addend.amount;
+		return new Money(sum, this.currency);
 	}
 	
 	
