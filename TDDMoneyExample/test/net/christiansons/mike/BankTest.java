@@ -39,5 +39,16 @@ public class BankTest {
 		int identityRate = new Bank().rate("USD", "USD");
 		assertEquals(1, identityRate);
 	}
+	
+	@Test
+	public void testMixedAddition() {
+		Expression fiveBucks = Money.dollar(5);
+		Expression tenFrancs = Money.franc(10);
+		Bank bank = new Bank();
+		Expression fiveBucksPlusTenFrancs = fiveBucks.plus(tenFrancs);
+		bank.addRate("CHF", "USD", 2);
+		Money result = bank.reduce(fiveBucksPlusTenFrancs, "USD");
+		assertEquals(Money.dollar(10), result);
+	}
 
 }

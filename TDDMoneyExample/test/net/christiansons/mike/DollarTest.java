@@ -15,7 +15,7 @@ public class DollarTest {
 	public void testMultiplication() {
 		Money five = Money.dollar(5);
 		five.times(2);
-		Money fifteen = five.times(3);
+		Expression fifteen = five.times(3);
 		assertEquals(Money.dollar(15), fifteen);
 	}
 	

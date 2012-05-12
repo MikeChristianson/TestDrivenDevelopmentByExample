@@ -15,7 +15,7 @@ public class FrancTest {
 	public void testMultiplication() {
 		Money five = Money.franc(5);
 		five.times(2);
-		Money fifteen = five.times(3);
+		Expression fifteen = five.times(3);
 		assertEquals(Money.franc(15), fifteen);
 	}
 	
