@@ -3,7 +3,7 @@ package net.christiansons.mike;
 public class Money implements Expression {
 
 	protected int amount;
-	protected String currency;
+	private String currency;
 
 	public Money(int amount, String currency) {
 		this.amount = amount;
@@ -39,9 +39,12 @@ public class Money implements Expression {
 		return "Money [amount=" + amount + ", currency=" + currency + ", getClass()=" + getClass() + "]";
 	}
 
-	public Money plus(Money addend) {
-		int sum = this.amount + addend.amount;
-		return new Money(sum, this.currency);
+	public Expression plus(Money addend) {
+		return new Sum(this, addend);
+	}
+
+	public Money reduce(String toCurrency) {
+		return this;
 	}
 	
 	

@@ -2,8 +2,8 @@ package net.christiansons.mike;
 
 public class Bank {
 
-	public Money reduce(Expression sum, String string) {
-		return Money.dollar(10);
+	public Money reduce(Expression source, String toCurrency) {
+		return source.reduce(toCurrency);
 	}
 
 }
