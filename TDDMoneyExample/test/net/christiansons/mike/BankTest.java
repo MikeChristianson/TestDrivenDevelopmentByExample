@@ -48,6 +48,7 @@ public class BankTest {
 		Expression fiveBucksPlusTenFrancs = fiveBucks.plus(tenFrancs);
 		bank.addRate("CHF", "USD", 2);
 		Money result = bank.reduce(fiveBucksPlusTenFrancs, "USD");
+//		can also be accomplished by Money result = fiveBucksPlusTenFrancs.reduce(bank, "USD");
 		assertEquals(Money.dollar(10), result);
 	}
 

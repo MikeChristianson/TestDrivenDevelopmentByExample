@@ -18,9 +18,15 @@ public class Sum implements Expression {
 	}
 
 	@Override
-	public Expression plus(Expression tenFrancs) {
-		// TODO Auto-generated method stub
-		return null;
+	public Expression plus(Expression addend) {
+		return new Sum(this, addend);
+	}
+	
+	@Override
+	public Expression times(int multiplier) {
+		Expression multipliedAugend = augend.times(multiplier);
+		Expression multipliedAddend = addend.times(multiplier);
+		return new Sum(multipliedAugend, multipliedAddend);
 	}
 
 }

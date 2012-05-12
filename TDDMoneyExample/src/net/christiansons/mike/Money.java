@@ -43,6 +43,18 @@ public class Money implements Expression {
 	public Expression plus(Expression addend) {
 		return new Sum(this, addend);
 	}
+	
+	/**
+	 * An attempt at solving the idea of returning Money
+	 * from $5 + $5 rather than Sum.
+	 */
+	public Money plus(Money addend) {
+		if(currency.equals(addend.currency())) {
+			int sum = amount + addend.amount;
+			return new Money(sum, currency);
+		}
+		return plus(addend);
+	}
 
 	public Money reduce(Bank bank, String toCurrency) {
 		int rate = bank.rate(currency, toCurrency);
