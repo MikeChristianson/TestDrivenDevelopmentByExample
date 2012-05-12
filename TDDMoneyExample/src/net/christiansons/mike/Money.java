@@ -3,19 +3,19 @@ package net.christiansons.mike;
 public class Money extends Expression {
 
 	protected int amount;
-	private String currency;
+	private Currency currency;
 
-	public Money(int amount, String currency) {
+	public Money(int amount, Currency currency) {
 		this.amount = amount;
 		this.currency = currency;
 	}
 
 	public static Money dollar(int amount) {
-		return new Money(amount, "USD");
+		return new Money(amount, Currency.USD);
 	}
 
 	public static Money franc(int amount) {
-		return new Money(amount, "CHF");
+		return new Money(amount, Currency.CHF);
 	}
 
 	public Expression times(int multiplier) {
@@ -30,7 +30,7 @@ public class Money extends Expression {
 		return sameAmount && sameCurrency;
 	}
 
-	public String currency() {
+	public Currency currency() {
 		return currency;
 	}
 
@@ -51,9 +51,9 @@ public class Money extends Expression {
 		return plus(addend);
 	}
 
-	public Money reduce(Bank bank, String toCurrency) {
-		int rate = bank.rate(currency, toCurrency);
-		return new Money(amount / rate, toCurrency);
+	public Money reduce(Bank bank, Currency to) {
+		int rate = bank.rate(currency, to);
+		return new Money(amount / rate, to);
 	}
 	
 	

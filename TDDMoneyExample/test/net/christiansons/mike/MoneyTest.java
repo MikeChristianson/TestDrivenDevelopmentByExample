@@ -1,6 +1,7 @@
 package net.christiansons.mike;
 
 import static org.junit.Assert.*;
+import static net.christiansons.mike.Currency.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -20,8 +21,8 @@ public class MoneyTest {
 	
 	@Test
 	public void testCurrency() {
-		assertEquals("USD", Money.dollar(1).currency());
-		assertEquals("CHF", Money.franc(1).currency());
+		assertEquals(USD, Money.dollar(1).currency());
+		assertEquals(CHF, Money.franc(1).currency());
 	}
 	
 	@Test
@@ -29,7 +30,7 @@ public class MoneyTest {
 		Expression five = Money.dollar(5);
 		Expression sum = five.plus(five);
 		Bank bank = new Bank();
-		Money reduced = bank.reduce(sum, "USD");
+		Money reduced = bank.reduce(sum, USD);
 		assertEquals(Money.dollar(10), reduced);
 	}
 

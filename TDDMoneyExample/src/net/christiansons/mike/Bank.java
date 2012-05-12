@@ -4,22 +4,22 @@ import java.util.Hashtable;
 
 public class Bank {
 	
-	private Hashtable<Pair<String,String>, Integer> rates = new Hashtable<>();
+	private Hashtable<Pair<Currency,Currency>, Integer> rates = new Hashtable<>();
 
-	public Money reduce(Expression source, String toCurrency) {
+	public Money reduce(Expression source, Currency toCurrency) {
 		return source.reduce(this, toCurrency);
 	}
 
-	public void addRate(String from, String to, int rate) {
-		Pair<String,String> key = new Pair<>(from, to);
+	public void addRate(Currency from, Currency to, int rate) {
+		Pair<Currency, Currency> key = new Pair<>(from, to);
 		rates.put(key, rate);
 	}
 
-	public int rate(String currency, String toCurrency) {
-		if(currency.equals(toCurrency)) {
+	public int rate(Currency from, Currency to) {
+		if(from.equals(to)) {
 			return 1;
 		}
-		Pair<String,String> key = new Pair<>(currency, toCurrency);
+		Pair<Currency, Currency> key = new Pair<>(from, to);
 		return rates.get(key);
 	}
 

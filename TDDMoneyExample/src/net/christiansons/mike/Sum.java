@@ -10,11 +10,11 @@ public class Sum extends Expression {
 	}
 
 	@Override
-	public	Money reduce(Bank bank, String toCurrency) {
-		int reducedAugend = augend.reduce(bank, toCurrency).amount;
-		int reducedAddend = addend.reduce(bank, toCurrency).amount;
+	public Money reduce(Bank bank, Currency to) {
+		int reducedAugend = augend.reduce(bank, to).amount;
+		int reducedAddend = addend.reduce(bank, to).amount;
 		int amount = reducedAugend + reducedAddend;
-		return new Money(amount, toCurrency);
+		return new Money(amount, to);
 	}
 
 	@Override
