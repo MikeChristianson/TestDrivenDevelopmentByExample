@@ -1,6 +1,6 @@
 package net.christiansons.mike;
 
-public class Money implements Expression {
+public class Money extends Expression {
 
 	protected int amount;
 	private String currency;
@@ -39,11 +39,6 @@ public class Money implements Expression {
 		return "Money [amount=" + amount + ", currency=" + currency + ", getClass()=" + getClass() + "]";
 	}
 
-	@Override
-	public Expression plus(Expression addend) {
-		return new Sum(this, addend);
-	}
-	
 	/**
 	 * An attempt at solving the idea of returning Money
 	 * from $5 + $5 rather than Sum.

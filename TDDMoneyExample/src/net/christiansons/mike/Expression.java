@@ -1,11 +1,13 @@
 package net.christiansons.mike;
 
-public interface Expression {
+abstract public class Expression {
 
-	public Money reduce(Bank bank, String toCurrency);
+	abstract public Money reduce(Bank bank, String toCurrency);
 
-	public Expression plus(Expression expression);
+	abstract public Expression times(int multiplier);
 
-	public Expression times(int multiplier);
+	public Expression plus(Expression addend) {
+		return new Sum(this, addend);
+	}
 
 }

@@ -1,6 +1,6 @@
 package net.christiansons.mike;
 
-public class Sum implements Expression {
+public class Sum extends Expression {
 	public Expression augend;
 	public Expression addend;
 
@@ -17,11 +17,6 @@ public class Sum implements Expression {
 		return new Money(amount, toCurrency);
 	}
 
-	@Override
-	public Expression plus(Expression addend) {
-		return new Sum(this, addend);
-	}
-	
 	@Override
 	public Expression times(int multiplier) {
 		Expression multipliedAugend = augend.times(multiplier);
