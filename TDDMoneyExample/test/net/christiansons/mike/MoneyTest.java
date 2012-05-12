@@ -51,7 +51,8 @@ public class MoneyTest {
 	
 	@Test
 	public void testPlusSameCurrencyReturnsMoney() {
-		Money plus = Money.dollar(1).plus(Money.dollar(1));
+		Money result = Money.dollar(1).plus(Money.dollar(1));
+		assertEquals(Money.dollar(2), result);
 	}
 
 }
