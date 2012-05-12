@@ -15,7 +15,7 @@ public class SumTest {
 	public void testReduce() {
 		Money dollar = Money.dollar(1);
 		Sum sum = new Sum(dollar, dollar);
-		Money reduce = sum.reduce(dollar.currency());
+		Money reduce = sum.reduce(new Bank(), dollar.currency());
 		assertEquals(Money.dollar(2), reduce);
 	}
 

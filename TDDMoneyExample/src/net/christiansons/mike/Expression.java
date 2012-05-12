@@ -2,6 +2,6 @@ package net.christiansons.mike;
 
 public interface Expression {
 
-	public Money reduce(String toCurrency);
+	public Money reduce(Bank bank, String toCurrency);
 
 }
